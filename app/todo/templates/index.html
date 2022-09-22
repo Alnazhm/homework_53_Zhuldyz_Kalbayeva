@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block menu%}
+<ul>
+  <li>
+    <a href="{% url 'task_add' %}"> Add Task</a>
+  </li>
+</ul>
+{% endblock%}
+{% block content%}
+<h1>List of to do Tasks</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col">Lead At</th>
+        <th scope="col">More about</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for todo_task in todo_tasks%}
+    <tr>
+      <td>{{todo_task.description}}</td>
+      <td>{{todo_task.status}}</td>
+      <td>{{todo_task.lead_at}}</td>
+        <td><a href="{% url 'task_detail' todo_task.pk %}">More</a></td>
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+{% endblock%}
