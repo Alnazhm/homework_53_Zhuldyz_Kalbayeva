@@ -15,6 +15,7 @@
       <th scope="col">Status</th>
       <th scope="col">Lead At</th>
         <th scope="col">More about</th>
+      <th scope="col">Delete task</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
       <td>{{todo_task.status}}</td>
       <td>{{todo_task.lead_at}}</td>
         <td><a href="{% url 'task_detail' todo_task.pk %}">More</a></td>
+      <td><a href="{% url 'task_deleted' todo_task.pk %}">Delete task</a></td>
     </tr>
   {%endfor%}
   </tbody>
